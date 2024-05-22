@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.8)
 
-project(zBetterDebugEntry VERSION 1.0)
+project(BetterDebugEntry-main VERSION 1.0)
 
 set(CMAKE_CXX_STANDARD 20)
 
@@ -11,19 +11,19 @@ file(GLOB BETTER_MODULE_SRC
     "include/*.hxx"
 )
 
-add_executable(zBetterDebugEntry ${BETTER_MODULE_SRC})
+add_executable(BetterDebugEntry-main ${BETTER_MODULE_SRC})
 add_subdirectory(lib/BetterSunshineEngine)
 
-target_link_libraries(zBetterDebugEntry PUBLIC BetterSunshineEngine)
+target_link_libraries(BetterDebugEntry-main PUBLIC BetterSunshineEngine)
 
-target_include_directories(zBetterDebugEntry PUBLIC "include")
+target_include_directories(BetterDebugEntry-main PUBLIC "include")
 
-target_compile_options(zBetterDebugEntry PUBLIC ${SMS_COMPILE_FLAGS})
-target_link_options(zBetterDebugEntry PUBLIC ${SMS_LINK_FLAGS})
+target_compile_options(BetterDebugEntry-main PUBLIC ${SMS_COMPILE_FLAGS})
+target_link_options(BetterDebugEntry-main PUBLIC ${SMS_LINK_FLAGS})
 
 list(APPEND BETTER_MODULE_CONFIG_DEFINES "KURIBO_NO_TYPES" "BETTER_MOVESET_VERSION=\"v1.0\"")
 
-target_compile_definitions(zBetterDebugEntry PUBLIC ${BETTER_MODULE_CONFIG_DEFINES})
+target_compile_definitions(BetterDebugEntry-main PUBLIC ${BETTER_MODULE_CONFIG_DEFINES})
 
 add_custom_target(${PROJECT_NAME}.kxe ALL DEPENDS ${PROJECT_NAME})
 add_custom_command(
